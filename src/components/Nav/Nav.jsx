@@ -20,7 +20,7 @@ const Nav = ({isPopup, setIsPopup}) => {
                                 <NavLink className="nav-link" to="/news">Новости</NavLink>
                             </li>
                     </ul>
-                    <button type="button" class="btn btn-success" onClick={handlerOnClick}>Войти</button>
+                    <button type="button" className="btn btn-success" onClick={handlerOnClick}>Войти</button>
                     {isPopup && <LogIn setIsPopup={setIsPopup}/>}
                 </div>
             </div>
