@@ -6,14 +6,14 @@ import News from "./components/News/News";
 import {connect} from "react-redux";
 import {setIsPopup, setLogIn, setWelcomeName} from "./redux/loginReducer";
 
-const App = ({isPopup, logIn, welcomeName, setIsPopup, setLogIn, setWelcomeName}) => {
+const App = ({isPopup, logIn, welcomeName, newsList, setIsPopup, setLogIn, setWelcomeName}) => {
   return (
     <div className="App">
         <Nav isPopup={isPopup} setIsPopup={setIsPopup} setLogIn={setLogIn} logIn={logIn}/>
         <div className="container">
             <Switch>
                 <Route render={() => <Main logIn={logIn} welcomeName={welcomeName} setWelcomeName={setWelcomeName}/>} path='/main'/>
-                <Route render={() => <News/>} path='/news'/>
+                <Route render={() => <News newsList={newsList} />} path='/news'/>
             </Switch>
         </div>
     </div>
@@ -24,7 +24,9 @@ const mapStateToProps = state => {
     return {
         isPopup: state.login.isPopup,
         logIn: state.login.logIn,
-        welcomeName: state.login.welcomeName
+        welcomeName: state.login.welcomeName,
+
+        newsList: state.news.newsList
     }
 }
 

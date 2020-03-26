@@ -13,7 +13,7 @@ const Nav = ({isPopup, setIsPopup, setLogIn, logIn}) => {
 
 
     return (
-        <nav className="navbar navbar-expand navbar-dark bg-dark mb-3">
+        <nav className="navbar navbar-expand navbar-dark bg-dark mb-5">
             <div className="container">
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav w-100">
