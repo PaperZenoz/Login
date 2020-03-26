@@ -1,20 +1,38 @@
 import React from 'react';
 
-const UserDisplay = () => {
+const UserDisplay = ({setUnverifiedNews}) => {
+    const handlerSubmit = (e) => {
+        e.preventDefault()
+        const title = e.target.elements.title.value
+        const text = e.target.elements.text.value
+
+
+        setUnverifiedNews({
+            title: title,
+            text: text,
+            data: '26.02.2020',
+            id: Date.now()
+        })
+
+        alert('Новость отправлена администатору на рассмотрение')
+    }
+
+
+
     return (
 
 
-        <div class="card text-white bg-dark mb-5">
-            <div class="card-header">
+        <div className="card text-white bg-dark mb-5">
+            <div className="card-header">
                 Дисплей пользователя
             </div>
-            <div class="card-body">
-                <form>
+            <div className="card-body">
+                <form onSubmit={e => handlerSubmit(e)}>
                     <div className="form-group">
                         <label>Название поста:</label>
                         <input type="text" name="title" className="form-control"/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label>Текст поста:</label>
                         <textarea name="text" className="form-control"/>
                     </div>

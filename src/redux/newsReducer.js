@@ -16,6 +16,7 @@ const initialState = {
 export const newsReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case SET_NEWS_LIST:
+            debugger
             return {...state, newsList: action.payload}
         default:
             return state

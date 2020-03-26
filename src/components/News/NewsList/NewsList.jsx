@@ -6,7 +6,6 @@ const NewsList = ({newsList}) => {
     return (
         <>
         {newsList.map((newsItem, index) => <NewsItem key={index} newsItem={newsItem}/>)}
-
         </>
 
     );

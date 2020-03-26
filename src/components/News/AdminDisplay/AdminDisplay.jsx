@@ -1,8 +1,9 @@
 import React from 'react';
+import UnverifiedNewsItem from "./UnverifiedNewsItem/UnverifiedNewsItem";
 
-const AdminDisplay = () => {
+const AdminDisplay = ({unverifiedNews, removeNews}) => {
     return (
-        <h3>Дисплей админа</h3>
+        unverifiedNews.length > 0 ? unverifiedNews.map((unverifiedNewsItem) => <UnverifiedNewsItem unverifiedNewsItem={unverifiedNewsItem} key={unverifiedNewsItem.id} unverifiedNews={unverifiedNews} removeNews={removeNews}/>) : <h2 className="mb-5 text-center">Пользователь не предложил новую новость</h2>
     );
 }
 
