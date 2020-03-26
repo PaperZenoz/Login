@@ -2,9 +2,13 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 import LogIn from "./LogIn/LogIn";
 
-const Nav = ({isPopup, setIsPopup}) => {
-    const handlerOnClick = () => {
+const Nav = ({isPopup, setIsPopup, setLogIn, logIn}) => {
+    const handlerOnLogInClick = () => {
         setIsPopup(true)
+    }
+
+    const handlerOnLogOutClick = () => {
+        setLogIn(null)
     }
 
 
@@ -20,8 +24,8 @@ const Nav = ({isPopup, setIsPopup}) => {
                                 <NavLink className="nav-link" to="/news">Новости</NavLink>
                             </li>
                     </ul>
-                    <button type="button" className="btn btn-success" onClick={handlerOnClick}>Войти</button>
-                    {isPopup && <LogIn setIsPopup={setIsPopup}/>}
+                    {logIn === null ? <button type="button" className="btn btn-success" onClick={handlerOnLogInClick}>Войти</button> : <button type="button" className="btn badge-danger" onClick={() => handlerOnLogOutClick()}>Выйти</button>}
+                    {isPopup && <LogIn setIsPopup={setIsPopup} setLogIn={setLogIn} /> }
                 </div>
             </div>
         </nav>

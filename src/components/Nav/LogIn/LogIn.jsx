@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Login = ({setIsPopup}) => {
+const Login = ({setIsPopup, setLogIn}) => {
     const handlerOnClick = () => {
         setIsPopup(false)
     }
@@ -11,17 +11,14 @@ const Login = ({setIsPopup}) => {
         const password = e.target.elements.password.value
 
         if (login === 'Admin' && password === 'Admin') {
-            alert('Здравствуй, Администратор!')
             setIsPopup(false)
+            setLogIn('admin')
         } else if (login === 'User' && password === 'User'){
-            alert('Здравствуй, Юзер!')
             setIsPopup(false)
+            setLogIn('user')
         } else {
             alert('Неправильная пара')
         }
-
-
-        console.log(login + '  ' + password)
     }
 
     return (
