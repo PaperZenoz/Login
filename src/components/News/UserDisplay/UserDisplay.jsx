@@ -5,13 +5,13 @@ const UserDisplay = ({setUnverifiedNews}) => {
         e.preventDefault()
         const title = e.target.elements.title.value
         const text = e.target.elements.text.value
+        const data = '27.03.2020'
 
 
         setUnverifiedNews({
             title: title,
             text: text,
-            data: '27.02.2020',
-            id: Date.now()
+            data: data
         })
 
         alert('Новость отправлена администатору на рассмотрение')
