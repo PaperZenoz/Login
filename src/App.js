@@ -13,7 +13,7 @@ const App = ({isPopup, logIn, welcomeName, newsList, setIsPopup, setLogIn, setWe
         <div className="container">
             <Switch>
                 <Route render={() => <Main logIn={logIn} welcomeName={welcomeName} setWelcomeName={setWelcomeName}/>} path='/main'/>
-                <Route render={() => <News newsList={newsList} />} path='/news'/>
+                <Route render={() => <News newsList={newsList} logIn={logIn}/>} path='/news'/>
             </Switch>
         </div>
     </div>
