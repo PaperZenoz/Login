@@ -5,17 +5,17 @@ import Main from "./components/Main/Main";
 import News from "./components/News/News";
 import {connect} from "react-redux";
 import {setIsPopup, setLogIn, setWelcomeName} from "./redux/loginReducer";
-import {setNewsList} from "./redux/newsReducer";
+import {addNews, setNewsList} from "./redux/newsReducer";
 import {removeNews, setUnverifiedNews} from "./redux/adminReducer";
 
-const App = ({isPopup, logIn, welcomeName, newsList, setIsPopup, setLogIn, setWelcomeName, setNewsList, setUnverifiedNews, unverifiedNews, removeNews}) => {
+const App = ({isPopup, logIn, welcomeName, newsList, setIsPopup, setLogIn, setWelcomeName, setNewsList, setUnverifiedNews, unverifiedNews, removeNews, addNews}) => {
   return (
     <div className="App">
         <Nav isPopup={isPopup} setIsPopup={setIsPopup} setLogIn={setLogIn} logIn={logIn}/>
         <div className="container">
             <Switch>
                 <Route render={() => <Main logIn={logIn} welcomeName={welcomeName} setWelcomeName={setWelcomeName}/>} path='/main'/>
-                <Route render={() => <News newsList={newsList} logIn={logIn} setNewsList={setNewsList} setUnverifiedNews={setUnverifiedNews} unverifiedNews={unverifiedNews} removeNews={removeNews}/>} path='/news'/>
+                <Route render={() => <News newsList={newsList} logIn={logIn} setNewsList={setNewsList} setUnverifiedNews={setUnverifiedNews} unverifiedNews={unverifiedNews} removeNews={removeNews} addNews={addNews}/>} path='/news'/>
             </Switch>
         </div>
     </div>
@@ -35,4 +35,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {setIsPopup, setLogIn, setWelcomeName, setNewsList, setUnverifiedNews, removeNews})(App);
+export default connect(mapStateToProps, {setIsPopup, setLogIn, setWelcomeName, setNewsList, setUnverifiedNews, removeNews, addNews})(App);

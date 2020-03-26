@@ -10,7 +10,7 @@ const UserDisplay = ({setUnverifiedNews}) => {
         setUnverifiedNews({
             title: title,
             text: text,
-            data: '26.02.2020',
+            data: '27.02.2020',
             id: Date.now()
         })
 

@@ -1,9 +1,10 @@
 import React from 'react';
 
 
-const UnverifiedNewsItem = ({unverifiedNewsItem, unverifiedNews, removeNews}) => {
-    const addNewsHandler = () => {
-        alert('1')
+const UnverifiedNewsItem = ({unverifiedNewsItem, unverifiedNews, removeNews, addNews, newsList}) => {
+    const addNewsHandler = (id) => {
+        addNews(newsList.concat(unverifiedNews.filter(unverifiedNewsI => unverifiedNewsI.id === id)))
+        removeNews(unverifiedNews.filter(unverifiedNewsI => unverifiedNewsI.id !== id))
     }
 
     const removeNewsHandler = (id) => {
@@ -28,7 +29,7 @@ const UnverifiedNewsItem = ({unverifiedNewsItem, unverifiedNews, removeNews}) =>
                         </footer>
                     </blockquote>
                     <div className="mt-3">
-                        <button type="button" className="btn btn-success btn-lg btn-block" onClick={addNewsHandler}>Одобрить новость</button>
+                        <button type="button" className="btn btn-success btn-lg btn-block" onClick={() => addNewsHandler(unverifiedNewsItem.id)}>Одобрить новость</button>
                         <button type="button" className="btn btn-danger btn-lg btn-block" onClick={() => removeNewsHandler(unverifiedNewsItem.id)}>Удалить новость</button>
                     </div>
 

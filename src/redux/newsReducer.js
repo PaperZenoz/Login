@@ -1,4 +1,5 @@
 const SET_NEWS_LIST = 'SET_NEWS_LIST'
+const ADD_NEWS = 'ADD_NEWS'
 
 
 
@@ -13,10 +14,12 @@ const initialState = {
 
 
 
+
 export const newsReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case SET_NEWS_LIST:
-            debugger
+            return {...state, newsList: action.payload}
+        case ADD_NEWS:
             return {...state, newsList: action.payload}
         default:
             return state
@@ -24,5 +27,9 @@ export const newsReducer = (state = initialState, action: any) => {
 }
 
 export const setNewsList = payload => ({type: SET_NEWS_LIST, payload})
+export const addNews = payload => ({type: ADD_NEWS, payload})
+
+
+
 
 
