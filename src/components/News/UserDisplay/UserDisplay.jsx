@@ -11,7 +11,8 @@ const UserDisplay = ({setUnverifiedNews}) => {
         setUnverifiedNews({
             title: title,
             text: text,
-            data: data
+            data: data,
+            id: Date.now()
         })
 
         alert('Новость отправлена администатору на рассмотрение')
